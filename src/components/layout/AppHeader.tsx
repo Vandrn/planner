@@ -1,6 +1,7 @@
 'use client';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import Link from 'next/link';
+import { ThemeToggle } from './ThemeToggle';
 
 export default function AppHeader() {
   return (
@@ -11,6 +12,8 @@ export default function AppHeader() {
           UniLife Organizer
         </h1>
       </Link>
+      <div className="flex-1" />
+      <ThemeToggle />
     </header>
   );
 }

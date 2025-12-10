@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/sidebar';
 import AppHeader from '@/components/layout/AppHeader';
 import AppNav from '@/components/layout/AppNav';
+import { ThemeProvider } from '@/components/layout/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'UniLife Organizer',
@@ -41,16 +42,23 @@ export default function RootLayout({
           'font-body'
         )}
       >
-        <SidebarProvider>
-          <Sidebar>
-            <AppNav />
-          </Sidebar>
-          <SidebarInset className="flex flex-col">
-            <AppHeader />
-            <main className="flex-1 p-4 md:p-6">{children}</main>
-          </SidebarInset>
-        </SidebarProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+            <Sidebar>
+              <AppNav />
+            </Sidebar>
+            <SidebarInset className="flex flex-col">
+              <AppHeader />
+              <main className="flex-1 p-4 md:p-6">{children}</main>
+            </SidebarInset>
+          </SidebarProvider>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
